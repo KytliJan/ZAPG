@@ -5,6 +5,27 @@ Pozn. k bilinearni interpolaci:
 Mam radost, ze jste si zkousel ruzne argumenty - v nekterych dalsich ulohach se nam bude hodi.
 Imshow pouzivame bud k zobrazni struktury matice (ci nejakych dat), tam je interpolace ponekud zavadejici, ale
 v pripade, kdy matice bude reprezentovat napriklad obrazek, tak nam interpolace bude uzitecna. 
+
+Malý bonus k plotům: často je potřeba nastavovat velké množství parametrů.
+Aby se člověk neupsal a nemusel nastavovat požadavky v každém argumentu každé funkce, matplotlib obsahuje
+objekt rcParams, což je tzv. dictionary, ve kterém jsou uloženy globální parametry plotů, které můžeme přepsat.
+Tím budou platné pro všechny naše obrázky. Příklad takové aktualizace je níže:
+
+    - první kolonka povoluje použití LaTeXu v popiscích
+    - použití speciálního LaTeXového balíku pro matematickou sazku
+    - font - skupina
+    - font - detail
+    - výchozí velikost fontu
+
+# setup plot properties
+plt.rcParams.update({
+  "text.usetex": True,
+  "text.latex.preamble" : r"\usepackage{amsfonts}",
+  "font.family": "Times",
+  "font.serif" : "Times New Roman",
+  "font.size"  : 24,
+})
+
 """
 import numpy as np
 import matplotlib.pyplot as plt
