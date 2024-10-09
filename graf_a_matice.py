@@ -1,3 +1,11 @@
+"""
+To je velmi pekne. Vsechno hezky prehledne, usporadane, citelne, tak by to melo vypadat, perfektni.
+
+Pozn. k bilinearni interpolaci:
+Mam radost, ze jste si zkousel ruzne argumenty - v nekterych dalsich ulohach se nam bude hodi.
+Imshow pouzivame bud k zobrazni struktury matice (ci nejakych dat), tam je interpolace ponekud zavadejici, ale
+v pripade, kdy matice bude reprezentovat napriklad obrazek, tak nam interpolace bude uzitecna. 
+"""
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
