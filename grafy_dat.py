@@ -122,6 +122,7 @@ matice = np.random.rand(100, 100)
 
 """
 Pekne. A chvalim za axis.
+A minimum pomoci for cyklu byste jiste zvladl.
 """
 prumer = np.mean(matice, axis=1)  # Průměry řádků
 odchylka = np.std(matice, axis=1)     # Standardní odchylky řádků
