@@ -1,0 +1,52 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+# xn+1 = r*xn(1-xn)
+# populace+1 = faktor prostředí*populace(1-populace)
+
+r_list = np.linspace(0, 4, 1000)
+
+
+
+# Populační rce
+def populacni_rce(r, x0= 0.3, roky= 500):
+    x = x0
+    populace = []
+    for _ in range(roky):
+        x = r * x * (1 - x)
+        populace.append(x)
+    return populace[-100:]  # vrátí posledních 100 hodnot
+
+
+
+# posledních 100 hodnot populace pro r
+stav_populace = [] # "pomocné pole"
+for r in r_list:
+    final_100 = populacni_rce(r)
+    stav_populace.extend([(r, x) for x in final_100])
+
+# 1. graf
+r_scatter, x_scatter = zip(*stav_populace)
+plt.figure(figsize=(10, 6))
+plt.scatter(r_scatter, x_scatter, s= 1, color='blue')
+plt.title("500 let")
+plt.xlabel("r")
+plt.ylabel("Stav populace v posledních 100 krocích")
+plt.show()
+
+
+# 2. graf
+R = [0.5, 1.5, 3.25, 3.5, 3.7, 4]
+plt.figure(figsize=(12, 8))
+
+for i, r in enumerate(R, 1):
+    plt.subplot(2, 3, i)
+    populace = populacni_rce(r, roky= 50)
+    plt.plot(populace)
+    plt.title(f"Vývoj populace pro r = {r}")
+    plt.xlabel("Kroky")
+    plt.ylabel("Stav populace")
+
+plt.tight_layout()
+plt.show()
