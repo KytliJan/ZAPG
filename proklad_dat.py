@@ -1,3 +1,15 @@
+"""
+Velmi pekne, dekuji.
+Ten subplot je velmi pekny.
+
+Co se poznamek a tipu tyce, vetsinu jsem shrnul v uloze s numerickou integraci, odkazuji Vas proto tam.
+Ohledne kvadraticke odchylky - lze to vylepsit tak, ze rozdil mezi daty a predikci polynomu pred umoznenim podelite napriklad maximalni hodnotou nebo prumerem z dostupnych dat. Timto normovanim zajistite, ze kvadraticka odchylka 
+bude mit rozumne hodnoty.
+
+Zaroven doplnuji k subplotu, ze existuje moznost mit sdilene osy. Tzn. mate-li vedle sebe nekolik obrazku, ma-li kazdy stejne hodnoty na ose x a ose y, lze hodnoty a popisky os zobrazit pouze u krajnich obrazkuch - za se tim usetrit trochu mista.
+
+"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 
