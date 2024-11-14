@@ -1,3 +1,33 @@
+"""
+Velmi pěkné, díky.
+Oceňuji zejména ty konvergenční diagramy v logaritmických souřadnicích. (V praxi se do podobných diagramů ještě vykresluje čára nebo trojúhelníček, který vyznačuje sklon 1 nebo sklon 2 - či vyšší, závisí na tom, jaká máte data - aby bylo na první pohled z porovnání vidět, že Vámi vykreslaná data klesají/rostou zhruba s takovým a takovým řádem). A chválím za použití funkce fsolve a "nahlednuti" do scipy a take za použití dtype argumentu u numpy poli. A také že máte pro popisky grafů formátované textové řetězce s LaTeXovou syntaxí.
+
+Přikládám pár tipů:
+Pro malé čistě numerické funkce je vhodné použití spíše tzv. lambda funkce než klasické funlce:
+tj:
+f = lambda x: x + np.exp(x)
+
+a možná bych se nebál ani:
+integral = lambda a, b: (b**2 / 2 + np.exp(b)) - (a**2 / 2 + np.exp(a))
+
+trapozeidal_rule už je ideální pro plnohonodnou funkci (koukám, že o kousek dál už lamda funkce používáte).
+
+Zaroven bych navrhoval nemichat funkce a jednotlive sekvence behu programu (definice promennych, volani funkci).
+Funkce byva zvykem definovat na zacatu skriptu (potazmo v externim souboru),
+a nasledovat je "casti kodu, ktera se explicitne spousti". V souvislosti s tim
+se doporucuji seznamit s __main__ konceptem, viz treba zde:
+
+https://realpython.com/if-name-main-python/
+
+Logaritmicky plot chyby provadite dvakrat, ten kod je zapsany duplicitne, zaslouzil by si take vlastni funkci.
+Takovýhle skript by už možná stálo za to rozčlenit do více souborů - jeden, ve kterém se definují funcek, druhý, ve kterém je voláte.
+Někdy je také užitečné (zvláště u numerických funkcí) že vrací více argumentů - krom výsledku třeba i toleranci a počet iterací (v direktivně return lze zapsat všechny výstupy za sebe)
+
+return a, b, c
+
+A připomínám globální parametry plotu, někdy se můžou hodit.
+"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 
